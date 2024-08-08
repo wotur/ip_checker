@@ -1,0 +1,1 @@
+{"subnets": [["rjyn 1", "1.1.1.1", "1.1.1.5", 1]], "expected_count1": "5", "expected_count2": "1", "check_interval": "500"}
