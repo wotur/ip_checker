@@ -205,7 +205,7 @@ class ASICMonitorApp:
         start = ipaddress.IPv4Address(start_ip)
         end = ipaddress.IPv4Address(end_ip)
         if start > end:
-            raise ValueError("Start IP must be less than или равен end IP")
+            raise ValueError("Начальный IP должен быть меньше конечного IP")
         return [str(ipaddress.IPv4Address(ip)) for ip in range(int(start), int(end) + 1)]
 
     # Остановка мониторинга
@@ -235,14 +235,14 @@ class ASICMonitorApp:
             self.log(f"{ip} - {result}")
             if result:
                 active_ips.append(ip)
-            time.sleep(0.01)  # Пауза для предотвращения перегрузки
+            time.sleep(0.05)  # Пауза для предотвращения перегрузки
         return active_ips
 
     # Мониторинг подсетей
     def monitor(self):
         try:
             while self.running:
-                self.log("погнали сканить...")
+                self.log("Сканирование началось...")
                 start_time = time.time()
 
                 threads = []
@@ -286,7 +286,7 @@ class ASICMonitorApp:
             self.play_sound(self.long_sound_file)
             time.sleep(0.5)
 
-    # Воспроизведение звука
+    # Воспроизведение сигнала
     def play_sound(self, sound_file):
         self.log(f"Playing sound: {sound_file}")
         try:
